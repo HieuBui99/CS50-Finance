@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<main class="container p-5">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td><strong>{{grand_total}}</strong></td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for row in data %}
+                {% if row[3] !=0 %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{cell}}</td>
+                {% endfor %}
+            </tr>
+                {% endif %}
+            {% endfor %}
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{balance}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        </main>
+
+
+
+{% endblock %}
